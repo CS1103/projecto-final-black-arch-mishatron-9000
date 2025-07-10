@@ -26,13 +26,11 @@
 * **Grupo**: `group_3_custom_name`
 * **Integrantes**:
 
-  * Alumno A – 209900001 (Responsable de investigación teórica)
-  * Alumno B – 209900002 (Desarrollo de la arquitectura)
-  * Alumno C – 209900003 (Implementación del modelo)
-  * Alumno D – 209900004 (Pruebas y benchmarking)
-  * Alumno E – 209900005 (Documentación y demo)
-
-> *Nota: Reemplazar nombres y roles reales.*
+  * Mia Daniela Vargas Maycock – 202410507 (Responsable de investigación teórica)
+  * Miguel Adrian Espinoza Arnero – 202320031 (Desarrollo de la arquitectura)
+  * Arnaud – 209900003 (Implementación del modelo)
+  * Miguel Rodriguez – 209900004 (Pruebas y benchmarking)
+  * Sebastian Hernan Reategui Bellido – 202410048 (Documentación y demo)
 
 ---
 
