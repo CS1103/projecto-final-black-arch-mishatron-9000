@@ -29,7 +29,7 @@ Implementación de una red neuronal multicapa en C++20 utilizando tensores como 
   * Mia Daniela Vargas Maycock – 202410507 (Responsable de investigación teórica)
   * Miguel Adrian Espinoza Arnero – 202320031 (Desarrollo de la arquitectura)
   * Arnaud Jean-Alain Pierre Bellicha – 209900003 (Implementación del modelo)
-  * Miguel Rodriguez – 209900004 (Pruebas y benchmarking)
+  * Miguel Alonso Rodriguez Arias – 202320226 (Pruebas y benchmarking)
   * Sebastian Hernan Reategui Bellido – 202410048 (Documentación y demo)
 
 ---
@@ -165,7 +165,7 @@ Implementación de una red neuronal multicapa en C++20 utilizando tensores como 
 | Investigación teórica     | Daniela Vargas     | Documentar bases teóricas |
 | Diseño de la arquitectura | Miguel Espinoza    | UML y esquemas de clases  |
 | Implementación del modelo | Arnaud Pierre      | Código C++ de la NN       |
-| Pruebas y benchmarking    | Miguel Rodriguez   | Generación de métricas    |
+| Pruebas y benchmarking    | Miguel Rodriguez Arias   | Generación de métricas    |
 | Documentación y demo      | Sebastian Reategui | Tutorial y video demo     |
 
 
