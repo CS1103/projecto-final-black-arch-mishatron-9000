@@ -55,23 +55,23 @@ Implementación de una red neuronal multicapa en C++20 utilizando tensores como 
 * **Marco teórico**:
 1. Fundamentos de las redes neuronales:
    
-Las redes neuronales artificiales (ANNs) son modelos computacionales inspirados en el funcionamiento del cerebro humano, compuestos por capas de nodos   (neuronas artificiales) que transforman datos de entrada mediante operaciones matemáticas y funciones de activación. Cada conexión entre nodos tiene un peso ajustable, lo que permite a la red aprender relaciones complejas en los datos. Según Goodfellow et al., las ANNs son especialmente potentes para tareas de  clasificación, regresión y procesamiento de señales cuando se entrenan correctamente mediante algoritmos de optimización como backpropagation [1].
+* Las redes neuronales artificiales (ANNs) son modelos computacionales inspirados en el funcionamiento del cerebro humano, compuestos por capas de nodos    (neuronas artificiales) que transforman datos de entrada mediante operaciones matemáticas y funciones de activación. Cada conexión entre nodos tiene un peso ajustable, lo que permite a la red aprender relaciones complejas en los datos. Según Goodfellow et al., las ANNs son especialmente potentes para tareas de  clasificación, regresión y procesamiento de señales cuando se entrenan correctamente mediante algoritmos de optimización como backpropagation [1].
 
-3. Estructura y funcionamiento:
+2. Estructura y funcionamiento:
+
+* Una red neuronal multicapa (MLP) está formada por una capa de entrada, una o más capas ocultas, y una capa de salida. Cada capa aplica una transformación lineal seguida por una función de activación no lineal, como ReLU o Sigmoid. El entrenamiento de una red consiste en ajustar los pesos para minimizar una función de pérdida (por ejemplo, MSE o BCE), comparando la salida predicha con los valores reales del dataset [2]. Este proceso se realiza mediante el algoritmo de retropropagación, que calcula el gradiente de la pérdida respecto a los pesos y lo propaga en sentido inverso.
+
+3. Funciones de activación:
    
-Una red neuronal multicapa (MLP) está formada por una capa de entrada, una o más capas ocultas, y una capa de salida. Cada capa aplica una transformación lineal seguida por una función de activación no lineal, como ReLU o Sigmoid. El entrenamiento de una red consiste en ajustar los pesos para minimizar una función de pérdida (por ejemplo, MSE o BCE), comparando la salida predicha con los valores reales del dataset [2]. Este proceso se realiza mediante el algoritmo de retropropagación, que calcula el gradiente de la pérdida respecto a los pesos y lo propaga en sentido inverso.
+* Las funciones de activación introducen no linealidades en el modelo, lo que permite a la red aprender representaciones complejas. Una de las más utilizadas es la ReLU (Rectified Linear Unit), que mejora la convergencia y reduce el problema del desvanecimiento del gradiente [5]. Por otro lado, la función Sigmoid es útil en tareas de clasificación binaria, ya que comprime la salida en un rango entre 0 y 1.
 
-5. Funciones de activación:
+4. Algoritmos de optimización:
    
-Las funciones de activación introducen no linealidades en el modelo, lo que permite a la red aprender representaciones complejas. Una de las más utilizadas es la ReLU (Rectified Linear Unit), que mejora la convergencia y reduce el problema del desvanecimiento del gradiente [5]. Por otro lado, la función Sigmoid es útil en tareas de clasificación binaria, ya que comprime la salida en un rango entre 0 y 1.
+* Los optimizadores son fundamentales para el entrenamiento efectivo de redes neuronales. El algoritmo de descenso por gradiente estocástico (SGD) es simple y eficiente, pero puede converger lentamente o atascarse en mínimos locales. Por ello, se han desarrollado variantes como Adam, que combina el momentum y la adaptación de la tasa de aprendizaje para mejorar la estabilidad y velocidad de convergencia [3]. La elección del optimizador puede afectar drásticamente el rendimiento del modelo [4].
 
-7. Algoritmos de optimización:
-   
-Los optimizadores son fundamentales para el entrenamiento efectivo de redes neuronales. El algoritmo de descenso por gradiente estocástico (SGD) es simple y eficiente, pero puede converger lentamente o atascarse en mínimos locales. Por ello, se han desarrollado variantes como Adam, que combina el momentum y la adaptación de la tasa de aprendizaje para mejorar la estabilidad y velocidad de convergencia [3]. La elección del optimizador puede afectar drásticamente el rendimiento del modelo [4].
-
-9. Ingeniería de software y buenas prácticas:
+5. Ingeniería de software y buenas prácticas:
     
-En la práctica, el diseño modular del código y el uso de patrones como interfaces (ILayer, ILoss, IOptimizer) permiten construir sistemas extensibles y fáciles de depurar utilizando una arquitectura limpia y desacoplada facilita el entrenamiento, la evaluación y la experimentación con distintos modelos y configuraciones. En este proyecto, se aplicó este enfoque para permitir la adición sencilla de nuevas capas, funciones de activación y optimizadores.
+* En la práctica, el diseño modular del código y el uso de patrones como interfaces (ILayer, ILoss, IOptimizer) permiten construir sistemas extensibles y fáciles de depurar utilizando una arquitectura limpia y desacoplada facilita el entrenamiento, la evaluación y la experimentación con distintos modelos y configuraciones. En este proyecto, se aplicó este enfoque para permitir la adición sencilla de nuevas capas, funciones de activación y optimizadores.
 
 ---
 
@@ -79,24 +79,24 @@ En la práctica, el diseño modular del código y el uso de patrones como interf
 #### 2.1 Arquitectura de la solución
 * **Patrones de diseño**:
 1. Strategy – para funciones de pérdida y optimización
-Ubicación:
-ILoss<T,2> → MSELoss<T>, BCELoss<T>
-IOptimizer<T> → SGD<T>, Adam<T>
-Descripción:
-El patrón Strategy permite cambiar dinámicamente el algoritmo de pérdida o de optimización sin modificar la estructura de la red.
+* Ubicación:
+   * ILoss<T,2> → MSELoss<T>, BCELoss<T>
+   * IOptimizer<T> → SGD<T>, Adam<T>
+* Descripción:
+  * El patrón Strategy permite cambiar dinámicamente el algoritmo de pérdida o de optimización sin modificar la estructura de la red.
 
 2. Template Method – en NeuralNetwork::train()
-Ubicación:
-train() define el flujo general de entrenamiento: forward, cálculo de pérdida, backward, actualización.
-Descripción:
-El método train() define un algoritmo general (la plantilla) mientras que las subclases (ILayer, ILoss, IOptimizer) definen los pasos específicos.
+* Ubicación:
+   * train() define el flujo general de entrenamiento: forward, cálculo de pérdida, backward, actualización.
+*Descripción:
+   * El método train() define un algoritmo general (la plantilla) mientras que las subclases (ILayer, ILoss, IOptimizer) definen los pasos específicos.
 
 3. Polimorfismo (Interface-Based Design) – como forma de Abstract Factory ligera
-Ubicación:
-ILayer<T> es la interfaz común para Dense, ReLU, Sigmoid
-ILoss<T,2>, IOptimizer<T> también siguen esta lógica
-Descripción:
-Aunque no implementas una factoría como tal, el uso de punteros a interfaces (std::unique_ptr<ILayer<T>>) permite tratar distintas capas de forma homogénea y dinámica.
+* Ubicación:
+   * ILayer<T> es la interfaz común para Dense, ReLU, Sigmoid
+   * ILoss<T,2>, IOptimizer<T> también siguen esta lógica
+* Descripción:
+   * Aunque no implementas una factoría como tal, el uso de punteros a interfaces (std::unique_ptr<ILayer<T>>) permite tratar distintas capas de forma homogénea y dinámica.
 
 * **Estructura de carpetas**:
 
