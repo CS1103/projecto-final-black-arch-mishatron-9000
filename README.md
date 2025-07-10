@@ -125,7 +125,7 @@ Implementación de una red neuronal multicapa en C++20 utilizando tensores como 
 
 ### 3. Ejecución
 
-> **Demo de ejemplo**: Video/demo alojado en [link_de_drive](https://drive.google.com/file/d/1CaXJZbkH4r2Y_2o4j4QQauVI1HqoMW22/view?usp=sharing).
+> **Demo de ejemplo**: Video/demo alojado en [link_de_drive]([https://drive.google.com/file/d/1CaXJZbkH4r2Y_2o4j4QQauVI1HqoMW22/view?usp=sharing](https://drive.google.com/drive/folders/15c1VuVccjSQhTqktK4OPU8ICh7DHtn9t?usp=drive_link)).
 > Pasos:
 >
 > 1. Ejecutar el archivo main.cpp, el cual genera un conjunto de datos sintético (pares entrada-objetivo) para entrenar la red neuronal.
@@ -160,13 +160,13 @@ Implementación de una red neuronal multicapa en C++20 utilizando tensores como 
 
 ### 5. Trabajo en equipo
 
-| Tarea                     | Miembro            | Rol                       |
-| ------------------------- | ------------------ | ------------------------- |
-| Investigación teórica     | Daniela Vargas     | Documentar bases teóricas |
-| Diseño de la arquitectura | Miguel Espinoza    | UML y esquemas de clases  |
-| Implementación del modelo | Arnaud Pierre      | Código C++ de la NN       |
+| Tarea                     | Miembro                  | Rol                       |
+| ------------------------- | ------------------------ | ------------------------- |
+| Investigación teórica     | Daniela Vargas           | Documentar bases teóricas |
+| Diseño de la arquitectura | Miguel Espinoza          | UML y esquemas de clases  |
+| Implementación del modelo | Arnaud Pierre            | Código C++ de la NN       |
 | Pruebas y benchmarking    | Miguel Rodriguez Arias   | Generación de métricas    |
-| Documentación y demo      | Sebastian Reategui | Tutorial y video demo     |
+| Documentación y demo      | Sebastian Reategui       | Tutorial y video demo     |
 
 
 ---
